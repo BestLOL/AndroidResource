@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.androidresources">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!--网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:hardwareAccelerated="true"
+        android:theme="@style/AppTheme">
+
+        <!--<activity android:name=".RxJavaUse.RxJavaTest" android:launchMode="singleInstance" android:taskAffinity=".asd">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>-->
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity1" android:launchMode="standard"/>
+
+        <!--<activity android:name=".RxJavaUse.RxJavaTest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>-->
+        <activity android:name=".EventBusPlugin.TestaActivity"/>
+        <!--<activity android:name=".IPC.Messenger.MessengerActivity"/>-->
+        <activity android:name=".Animation.AsyncTaskNow"/>
+        <activity android:name=".IPC.IPCActivity" />
+        <activity android:name=".Service.ServiceActivity"/>
+        <activity android:name=".BroadCast.LocalBroadCastTest"/>
+        <activity android:name=".GlidePlugin.GlideTestaActivity"/>
+        <!--<activity android:name=".MainActivity"/>-->
+        <!--<activity android:name=".MainActivity1" android:process=":newProcess"/>-->
+
+        <activity android:name=".EventBusPlugin.TestbActivity"/>
+        <activity android:name=".OkHttpAgain.OkHttpClient"/>
+        <activity android:name=".Handler.HandlerTest"/>
+        <activity android:name=".Activity.MyActivity"/>
+        <activity android:name=".BitMapManager.BitMapManager"/>
+
+
+        <service android:name=".Service.ServiceBind"/>
+        <service android:name=".Service.ServiceCommon"/>
+        <service android:name=".IPC.IPCService"/>
+        <service android:name=".IPC.Messenger.MessengerService"/>
+        <service android:name=".Service.ForeService"/>
+
+        <!--监听网络状态-->
+        <receiver android:name=".NetWork.NetWorkChangReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!--静态广播监听，需要在发送的时候进行设置，这里的设置就可有可无了。-->
+        <receiver android:name=".BroadCast.StaticBroadCastReceiver">
+            <intent-filter>
+                <action android:name="STATIC"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name=".ContentProvider.MyContentProvider"
+            android:authorities="com.example.databasetest.provider">
+        </provider>
+
+    </application>
+
+
+
+</manifest>
